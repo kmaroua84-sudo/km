@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>TP WSPT</title>
+</head>
+
+<body>
+
+    <h1>Programme Python - Règle WSPT</h1>
+
+    <h2>Code source</h2>
+
+    <pre id="code"></pre>
+
+    <button onclick="telecharger()">
+        Télécharger le code Python
+    </button>
+
+    <script>
+        const pythonCode = `def wspt(p, w):
+    jobs = range(len(p))
+    return sorted(jobs, key=lambda j: p[j] / w[j])
+
+
+def cout(seq, p, w):
+    t, total = 0, 0
+    for j in seq:
+        t += p[j]
+        total += w[j] * t
+    return total
+
+
+def main():
+    p = [8, 3, 5, 2, 6]
+    w = [4, 6, 3, 7, 2]
+
+    seq = wspt(p, w)
+
+    print("Ordre optimal WSPT :")
+    print([j+1 for j in seq])
+
+    print("Cout total WSPT :")
+    print(cout(seq, p, w))
+
+
+if __name__ == "__main__":
+    main()
+`;
+
+        document.getElementById("code").textContent = pythonCode;
+
+        function telecharger() {
+            const fichier = new Blob(
+                [pythonCode],
+                {type: "text/x-python"}
+            );
+
+            const lien = document.createElement("a");
+            lien.href = URL.createObjectURL(fichier);
+            lien.download = "tp_wspt.py";
+            lien.click();
+            URL.revokeObjectURL(lien.href);
+        }
+    </script>
+
+</body>
+</html>==
