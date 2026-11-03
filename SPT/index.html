@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Programme Python - Règle SPT</title>
+</head>
+<body>
+    <h1>Application de la règle SPT</h1>
+
+    <p>Ce programme permet de classer les tâches
+    selon l'ordre croissant des durées de traitement.</p>
+
+    <h2>Code Python</h2>
+
+    <pre>
+def spt(p):
+    jobs = range(len(p))
+    return sorted(jobs, key=lambda j: p[j])
+
+def cout(seq, p, w):
+    t, total = 0, 0
+    for j in seq:
+        t += p[j]
+        total += w[j] * t
+    return total
+
+def main():
+    n = int(input("Nombre de tâches : "))
+    p = []
+    w = []
+
+    for j in range(n):
+        p.append(float(input(f"p{j+1} = ")))
+
+    for j in range(n):
+        w.append(float(input(f"w{j+1} = ")))
+
+    seq = spt(p)
+
+    print("\nOrdre SPT :")
+    print([j+1 for j in seq])
+
+    print("\nDates de fin :")
+    t = 0
+    for j in seq:
+        t += p[j]
+        print(f"C{j+1} = {t}")
+
+    print("\nCoût total pondéré SPT :")
+    print(cout(seq, p, w))
+
+if __name__ == "__main__":
+    main()
+    </pre>
+
+    <h2>Télécharger le programme</h2>
+    <a href="spt.py" download>
+        <button>Télécharger le code Python</button>
+    </a>
+</body>
+</html>
+
 
