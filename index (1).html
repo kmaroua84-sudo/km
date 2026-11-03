@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme Python - Règle SPT</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f7f7f7;
+        }
+        h1, h2 { color: #333; }
+        pre {
+            background: #eeeeee;
+            padding: 18px;
+            border-radius: 8px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        button {
+            background: #2457a7;
+            color: white;
+            border: 0;
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background: #193f7a; }
+    </style>
+</head>
+<body>
+    <h1>Programme Python - Règle SPT</h1>
+    <p>Ce programme applique la règle SPT (Shortest Processing Time).</p>
+
+    <h2>Code source</h2>
+    <pre id="code"></pre>
+
+    <button type="button" onclick="telecharger()">Télécharger le code Python</button>
+
+    <script>
+        const pythonCode = `def spt(p):
+    jobs = range(len(p))
+    return sorted(jobs, key=lambda j: p[j])
+
+
+def cout(seq, p, w):
+    t, total = 0, 0
+
+    for j in seq:
+        t += p[j]
+        total += w[j] * t
+
+    return total
+
+
+def main():
+    n = int(input("Nombre de tâches : "))
+
+    p = []
+    w = []
+
+    for j in range(n):
+        p.append(float(input(f"p{j+1} = ")))
+
+    for j in range(n):
+        w.append(float(input(f"w{j+1} = ")))
+
+    seq = spt(p)
+
+    print("\\nOrdre SPT :")
+    print([j+1 for j in seq])
+
+    print("\\nDates de fin :")
+    t = 0
+
+    for j in seq:
+        t += p[j]
+        print(f"C{j+1} = {t}")
+
+    total = cout(seq, p, w)
+
+    print("\\nCoût total pondéré SPT :")
+    print(total)
+
+
+if __name__ == "__main__":
+    main()
+`;
+
+        document.getElementById("code").textContent = pythonCode;
+
+        function telecharger() {
+            const fichier = new Blob([pythonCode], { type: "text/x-python;charset=utf-8" });
+            const lien = document.createElement("a");
+            lien.href = URL.createObjectURL(fichier);
+            lien.download = "spt.py";
+            document.body.appendChild(lien);
+            lien.click();
+            document.body.removeChild(lien);
+            URL.revokeObjectURL(lien.href);
+        }
+    </script>
+</body>
+</html>
