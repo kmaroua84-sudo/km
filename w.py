@@ -41,3 +41,9 @@ def main():
         print(f"C{j+1} = {t}")
 
     total = cout(seq, p, w)
+    print("\nCoût total pondéré W :")
+    print(total)
+
+
+if __name__ == "__main__":
+    main()
