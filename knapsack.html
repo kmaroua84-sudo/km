@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0-1 Knapsack Problem | Tabu Search</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #243247;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #102b46;
+            color: white;
+            text-align: center;
+            padding: 65px 20px;
+        }
+
+        header h1 {
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            color: #b9dce5;
+            font-size: 17px;
+        }
+
+        main {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            padding: 28px;
+            margin-bottom: 22px;
+            border-radius: 12px;
+            border-left: 4px solid #16a6a1;
+        }
+
+        h2 {
+            color: #126b78;
+            margin-bottom: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #128c91;
+            color: white;
+            padding: 12px 22px;
+            margin-top: 15px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #102b46;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>0-1 Knapsack Problem</h1>
+        <p>Solving Combinatorial Optimization using Tabu Search</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Project Overview</h2>
+            <p>
+                This project focuses on the 0-1 Knapsack Problem,
+                a classical combinatorial optimization problem.
+                The objective is to maximize the total profit
+                without exceeding the capacity of the knapsack.
+            </p>
+        </section>
+
+        <section>
+            <h2>Methodology</h2>
+            <p>
+                The problem is approached using the Tabu Search
+                metaheuristic. The algorithm explores neighboring
+                solutions using Add, Remove and Swap moves,
+                while a Tabu List helps avoid cycling.
+            </p>
+        </section>
+
+        <section>
+            <h2>Implementation</h2>
+            <p>
+                The algorithm is implemented in Python.
+                The source code is available in this repository.
+            </p>
+
+            <a class="button" href="tabu_search.py">
+                View Python Source Code
+            </a>
+        </section>
+
+    </main>
+
+    <footer>
+        Academic Project — Operations Research
+    </footer>
+
+</body>
+</html>
