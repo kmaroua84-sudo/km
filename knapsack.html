@@ -108,16 +108,28 @@
         </section>
 
         <section>
-            <h2>Implementation</h2>
-            <p>
-                The algorithm is implemented in Python.
-                The source code is available in this repository.
-            </p>
+    <h2>Code source</h2>
 
-            <a class="button" href="tabu1_search.py">
-                View Python Source Code
-            </a>
-        </section>
+    <pre style="background:#f4f7fb; padding:20px;
+    border-radius:8px; overflow-x:auto;
+    border:1px solid #ddd;"><code id="pythonCode">Loading code...</code></pre>
+
+    <a class="button" href="tabu1_search.py" download>
+        Télécharger le code Python
+    </a>
+</section>
+
+<script>
+fetch("tabu1_search.py")
+.then(response => response.text())
+.then(code => {
+    document.getElementById("pythonCode").textContent = code;
+})
+.catch(error => {
+    document.getElementById("pythonCode").textContent =
+    "Unable to load source code.";
+});
+</script>
 
     </main>
 
