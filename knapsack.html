@@ -110,9 +110,12 @@
         <section>
     <h2>Code source</h2>
 
-    <pre style="background:#f4f7fb; padding:20px;
-    border-radius:8px; overflow-x:auto;
-    border:1px solid #ddd;"><code id="pythonCode">Loading code...</code></pre>
+    <pre style="background:#172b42;
+    color:#e5f0fa;
+    padding:20px;
+    border-radius:10px;
+    overflow-x:auto;
+    max-height:600px;"><code id="pythonCode">Loading...</code></pre>
 
     <a class="button" href="tabu1_search.py" download>
         Télécharger le code Python
@@ -121,16 +124,18 @@
 
 <script>
 fetch("tabu1_search.py")
-.then(response => response.text())
+.then(response => {
+    if (!response.ok) throw new Error("File not found");
+    return response.text();
+})
 .then(code => {
     document.getElementById("pythonCode").textContent = code;
 })
-.catch(error => {
+.catch(() => {
     document.getElementById("pythonCode").textContent =
-    "Unable to load source code.";
+    "Unable to load code.";
 });
 </script>
-
     </main>
 
     <footer>
